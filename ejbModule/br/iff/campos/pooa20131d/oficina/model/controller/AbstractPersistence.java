@@ -9,17 +9,19 @@ package br.iff.campos.pooa20131d.oficina.model.controller;
  */
 import java.util.List;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
-@SuppressWarnings("unused")
+@Stateless
+@LocalBean
 public class AbstractPersistence {
 	/*
 	 * @PersistenceContext( unitName = "oficinaejb") EntityManager entityManager;
 	 */
-	protected static EntityManagerFactory entityManagerFactory;
+	/*protected static EntityManagerFactory entityManagerFactory;
 	protected static EntityManager entityManager;
 
 	protected static EntityTransaction transaction;
@@ -31,33 +33,36 @@ public class AbstractPersistence {
 
 		transaction = entityManager.getTransaction();
 	}
-
+*/
 	// @TransactionAttribute(TransactionAttributeType.REQUIRED)
+	
+	@PersistenceContext( type = PersistenceContextType.EXTENDED,unitName = "oficinaEJB")
+	EntityManager entityManager; 
 
 	public Object insert(Object object) {
 
-		transaction.begin();
+		//transaction.begin();
 
 		entityManager.persist(object);
-		transaction.commit();
+		//transaction.commit();
 		return object;
 	}
 
 	public Object update(Object object) {
-		transaction.begin();
+		//transaction.begin();
 
 		entityManager.merge(object);
 
-		transaction.commit();
+		//transaction.commit();
 		return object;
 	}
 
 	public void delete(Class<?> classe, String codigo) {
 		Object object = find(classe, codigo);
-		transaction.begin();
+		//transaction.begin();
 
 		entityManager.remove(object);
-		transaction.commit();
+		//transaction.commit();
 	}
 
 	@SuppressWarnings("unchecked")

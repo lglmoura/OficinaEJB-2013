@@ -2,10 +2,14 @@ package br.iff.campos.pooa20131d.oficina.model.controller;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
 import br.iff.campos.pooa20131d.oficina.model.entity.Proprietario;
 import br.iff.campos.pooa20131d.oficina.model.entity.Veiculo;
 
-
+@Stateless
+@LocalBean
 public class VeiculoPersistence extends AbstractPersistence  {
 	
 	public Veiculo inserir(String uid, Integer ano, String cor,

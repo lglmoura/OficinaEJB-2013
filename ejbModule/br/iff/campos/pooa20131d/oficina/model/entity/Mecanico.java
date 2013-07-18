@@ -1,8 +1,12 @@
 package br.iff.campos.pooa20131d.oficina.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -10,6 +14,7 @@ import java.util.List;
  * 
  */
 @Entity
+@XmlRootElement
 public class Mecanico implements Serializable {
 	private static final long serialVersionUID = 1L;
 

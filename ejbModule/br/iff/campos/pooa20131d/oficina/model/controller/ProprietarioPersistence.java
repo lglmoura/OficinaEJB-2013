@@ -5,12 +5,17 @@ package br.iff.campos.pooa20131d.oficina.model.controller;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
 import br.iff.campos.pooa20131d.oficina.model.entity.Proprietario;
 
 /**
  * @author lglmoura
  * 
  */
+@Stateless
+@LocalBean
 public class ProprietarioPersistence extends AbstractPersistence {
 
 	public Proprietario inserir(String uid, String bairro, String cidade,
