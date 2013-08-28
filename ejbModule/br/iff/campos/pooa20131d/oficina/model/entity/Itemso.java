@@ -13,13 +13,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 /**
  * The persistent class for the itemsos database table.
  * 
  */
 @Entity
-@Table(name="itemsos")
+@Table(name = "itemsos")
 @XmlRootElement
 public class Itemso implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -33,23 +32,25 @@ public class Itemso implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date datainicio;
 
-	private Timestamp horafim;
+	@Temporal(TemporalType.DATE)
+	private Date horafim;
 
-	private Timestamp horainicio;
+	@Temporal(TemporalType.DATE)
+	private Date horainicio;
 
-	//bi-directional many-to-one association to Mecanico
+	// bi-directional many-to-one association to Mecanico
 	@ManyToOne
-	@JoinColumn(name="uidmecanico")
+	@JoinColumn(name = "uidmecanico")
 	private Mecanico mecanico;
 
-	//bi-directional many-to-one association to Ordemservico
+	// bi-directional many-to-one association to Ordemservico
 	@ManyToOne
-	@JoinColumn(name="uidordemservico")
+	@JoinColumn(name = "uidordemservico")
 	private Ordemservico ordemservico;
 
-	//bi-directional many-to-one association to Servico
+	// bi-directional many-to-one association to Servico
 	@ManyToOne
-	@JoinColumn(name="uidservico")
+	@JoinColumn(name = "uidservico")
 	private Servico servico;
 
 	public Itemso() {
@@ -79,7 +80,7 @@ public class Itemso implements Serializable {
 		this.datainicio = datainicio;
 	}
 
-	public Timestamp getHorafim() {
+	public Date getHorafim() {
 		return this.horafim;
 	}
 
@@ -87,7 +88,7 @@ public class Itemso implements Serializable {
 		this.horafim = horafim;
 	}
 
-	public Timestamp getHorainicio() {
+	public Date getHorainicio() {
 		return this.horainicio;
 	}
 

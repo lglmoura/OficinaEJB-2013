@@ -1,15 +1,20 @@
 package br.iff.campos.pooa20131d.oficina.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * The persistent class for the proprietario database table.
  * 
  */
 @Entity
+@XmlRootElement
 public class Proprietario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -32,8 +37,9 @@ public class Proprietario implements Serializable {
 
 	private String uf;
 
-	//bi-directional many-to-one association to Veiculo
-	@OneToMany(mappedBy="proprietario")
+	// bi-directional many-to-one association to Veiculo
+
+	@OneToMany(mappedBy = "proprietario")
 	private List<Veiculo> veiculos;
 
 	public Proprietario() {
@@ -110,7 +116,8 @@ public class Proprietario implements Serializable {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-
+	
+	//@XmlTransient
 	public List<Veiculo> getVeiculos() {
 		return this.veiculos;
 	}

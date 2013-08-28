@@ -1,8 +1,15 @@
 package br.iff.campos.pooa20131d.oficina.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 /**
@@ -10,6 +17,7 @@ import java.util.List;
  * 
  */
 @Entity
+@XmlRootElement
 public class Veiculo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -35,6 +43,7 @@ public class Veiculo implements Serializable {
 
 	public Veiculo() {
 	}
+	
 
 	public String getUid() {
 		return this.uid;
@@ -97,7 +106,7 @@ public class Veiculo implements Serializable {
 
 		return ordemservico;
 	}
-
+	@XmlTransient
 	public Proprietario getProprietario() {
 		return this.proprietario;
 	}
@@ -105,5 +114,7 @@ public class Veiculo implements Serializable {
 	public void setProprietario(Proprietario proprietario) {
 		this.proprietario = proprietario;
 	}
+
+	
 
 }

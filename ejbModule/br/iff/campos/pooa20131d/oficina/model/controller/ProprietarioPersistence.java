@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.xml.bind.annotation.XmlElement;
 
 import br.iff.campos.pooa20131d.oficina.model.entity.Proprietario;
 
@@ -69,18 +70,10 @@ public class ProprietarioPersistence extends AbstractPersistence {
 		super.delete(Proprietario.class, uid);
 	}
 
+	@XmlElement(name = "proprietarios")
 	public List<Proprietario> findAll() {
 		return super.findAll(Proprietario.class);
 
 	}
 
 }
-
-
-
-
-
-
-
-
-
